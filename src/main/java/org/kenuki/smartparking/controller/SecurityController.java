@@ -6,14 +6,12 @@ import org.kenuki.smartparking.models.dtos.LoginDTO;
 import org.kenuki.smartparking.models.dtos.RegisterDTO;
 import org.kenuki.smartparking.services.UserService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/security")
 @AllArgsConstructor
+@CrossOrigin
 public class SecurityController {
     private final UserService userService;
     @PostMapping("/register")
