@@ -25,6 +25,8 @@ create table user_roles (
 
 create table parking (
     id bigserial primary key,
+    latitude double precision not null,
+    longitude double precision not null,
     name varchar(255) unique not null,
     max_places int not null,
     free_places int not null,

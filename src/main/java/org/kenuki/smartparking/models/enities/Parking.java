@@ -7,6 +7,9 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.collection.spi.PersistentSet;
 
+import java.util.HashSet;
+import java.util.Set;
+
 @Entity
 @Getter
 @Setter
@@ -17,6 +20,8 @@ public class Parking {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private Double latitude;
+    private Double longitude;
     private String name;
     @Column(name = "max_places")
     private Integer maxPlaces;
@@ -27,7 +32,7 @@ public class Parking {
     private Double rating;
 
     @OneToMany(mappedBy = "parking")
-    private PersistentSet<ParkingReview> parkingReviews = new PersistentSet<>();
+    private Set<ParkingReview> parkingReviews = new HashSet<>();
     @OneToMany(mappedBy = "parking")
-    private PersistentSet<ParkingPoint> parkingPoints = new PersistentSet<>();
+    private Set<ParkingPoint> parkingPoints = new HashSet<>();
 }
