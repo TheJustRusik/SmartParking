@@ -18,7 +18,7 @@ public class ParkingService {
     private final ParkingRepository parkingRepository;
     private final ParkingPointRepository parkingPointRepository;
     public ResponseEntity<?> findParking(FindParkingDTO findParkingDTO) {
-        return null;
+        return ResponseEntity.ok(parkingRepository.findParkingInRadius(findParkingDTO.getLatitude(), findParkingDTO.getLongitude(), findParkingDTO.getRadius()));
     }
 
     public ResponseEntity<?> createParking(CreateParkingDTO createParkingDTO) {

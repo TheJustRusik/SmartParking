@@ -4,6 +4,7 @@ import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.kenuki.smartparking.models.dtos.LoginDTO;
 import org.kenuki.smartparking.models.dtos.RegisterDTO;
+import org.kenuki.smartparking.models.dtos.TokenDTO;
 import org.kenuki.smartparking.services.UserService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,11 +16,11 @@ import org.springframework.web.bind.annotation.*;
 public class SecurityController {
     private final UserService userService;
     @PostMapping("/register")
-    ResponseEntity<String> register(@RequestBody @Valid RegisterDTO registerDTO) {
+    ResponseEntity<TokenDTO> register(@RequestBody @Valid RegisterDTO registerDTO) {
         return ResponseEntity.ok(userService.register(registerDTO));
     }
     @PostMapping("/login")
-    ResponseEntity<String> login(@RequestBody @Valid LoginDTO loginDTO) {
+    ResponseEntity<TokenDTO> login(@RequestBody @Valid LoginDTO loginDTO) {
         return ResponseEntity.ok(userService.login(loginDTO));
     }
 }

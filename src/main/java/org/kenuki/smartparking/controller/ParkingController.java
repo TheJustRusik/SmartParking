@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin
 public class ParkingController {
     private final ParkingService parkingService;
-    @GetMapping("/find")
+    @PostMapping("/find")
     ResponseEntity<?> findParking(@RequestBody FindParkingDTO findParkingDTO) {
         return parkingService.findParking(findParkingDTO);
     }

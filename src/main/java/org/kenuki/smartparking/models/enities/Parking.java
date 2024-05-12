@@ -31,8 +31,8 @@ public class Parking {
     private Double rentPerHour;
     private Double rating;
 
-    @OneToMany(mappedBy = "parking")
+    @OneToMany(mappedBy = "parking", fetch = FetchType.EAGER)
     private Set<ParkingReview> parkingReviews = new HashSet<>();
-    @OneToMany(mappedBy = "parking")
+    @OneToMany(mappedBy = "parking", fetch = FetchType.EAGER)
     private Set<ParkingPoint> parkingPoints = new HashSet<>();
 }

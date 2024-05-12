@@ -3,6 +3,7 @@ package org.kenuki.smartparking.services;
 import lombok.AllArgsConstructor;
 import org.kenuki.smartparking.models.dtos.LoginDTO;
 import org.kenuki.smartparking.models.dtos.RegisterDTO;
+import org.kenuki.smartparking.models.dtos.TokenDTO;
 import org.kenuki.smartparking.models.enities.User;
 import org.kenuki.smartparking.repositories.RoleRepository;
 import org.kenuki.smartparking.repositories.UserRepository;
@@ -24,7 +25,7 @@ public class UserService {
     private final RoleRepository roleRepository;
     private final JwtTokenUtils jwtTokenUtils;
     private final PasswordEncoder passwordEncoder;
-    public String register(RegisterDTO registerDTO) {
+    public TokenDTO register(RegisterDTO registerDTO) {
         User newUser = new User();
         newUser.setNickname(registerDTO.getUsername());
         newUser.setEmail(registerDTO.getEmail());
@@ -34,15 +35,15 @@ public class UserService {
         return login(registerDTO.getEmail(), registerDTO.getPassword());
 
     }
-    public String login(LoginDTO loginDTO) {
+    public TokenDTO login(LoginDTO loginDTO) {
         return login(loginDTO.getEmail(), loginDTO.getPassword());
     }
-    private String login(String email, String password) {
+    private TokenDTO login(String email, String password) {
         Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(email, password)
         );
         SecurityContextHolder.getContext().setAuthentication(authentication);
-        return jwtTokenUtils.generateToken(authentication);
+        return new TokenDTO(jwtTokenUtils.generateToken(authentication));
     }
 
 }
