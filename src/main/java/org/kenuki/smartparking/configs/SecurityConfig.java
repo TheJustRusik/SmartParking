@@ -31,7 +31,8 @@ public class SecurityConfig {
                                 "/api/security/login",
                                 "/api/security/register",
                                 "/swagger/**", "/swagger", "/swagger-ui/**", "/swagger-ui",
-                                "/api-doc/**", "/api-doc"
+                                "/api-doc/**", "/api-doc",
+                                "/api/v1/parking/find"
                         ).permitAll()
                         .anyRequest().authenticated())
                 .sessionManagement(httpSecuritySessionManagementConfigurer ->
