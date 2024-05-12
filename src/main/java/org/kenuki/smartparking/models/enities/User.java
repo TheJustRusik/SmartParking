@@ -2,7 +2,10 @@ package org.kenuki.smartparking.models.enities;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
 
+import java.sql.Timestamp;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -20,6 +23,9 @@ public class User {
     private String nickname;
     private String email;
     private String password;
+    @CreationTimestamp
+    @Column(name = "created_at")
+    private Date createdAt;
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "user_roles",
