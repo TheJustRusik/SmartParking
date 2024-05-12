@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 public class FindParkingDTO {
-    private enum Orders {
+    public enum Orders {
         cheapest,
         nearest
     }

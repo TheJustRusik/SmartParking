@@ -1,10 +1,7 @@
 package org.kenuki.smartparking.models.enities;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.hibernate.collection.spi.PersistentSet;
 
 import java.util.HashSet;
@@ -35,4 +32,7 @@ public class Parking {
     private Set<ParkingReview> parkingReviews = new HashSet<>();
     @OneToMany(mappedBy = "parking", fetch = FetchType.EAGER)
     private Set<ParkingPoint> parkingPoints = new HashSet<>();
+
+
+
 }
