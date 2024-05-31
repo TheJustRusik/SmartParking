@@ -2,7 +2,6 @@ package org.kenuki.smartparking.models.enities;
 
 import jakarta.persistence.*;
 import lombok.*;
-import org.hibernate.collection.spi.PersistentSet;
 
 import java.util.HashSet;
 import java.util.Set;

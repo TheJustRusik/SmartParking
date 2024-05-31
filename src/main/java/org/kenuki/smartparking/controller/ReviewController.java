@@ -2,7 +2,6 @@ package org.kenuki.smartparking.controller;
 
 import lombok.AllArgsConstructor;
 import org.kenuki.smartparking.models.dtos.ReviewRequestDTO;
-import org.kenuki.smartparking.models.dtos.ReviewResponseDTO;
 import org.kenuki.smartparking.services.ReviewService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;

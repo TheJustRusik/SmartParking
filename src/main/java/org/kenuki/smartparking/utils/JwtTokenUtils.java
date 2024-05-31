@@ -44,10 +44,6 @@ public class JwtTokenUtils {
         return extractAllClaims(token).getSubject();
     }
 
-    public List<String> extractRoles(String token) {
-        return extractAllClaims(token).get("roles", List.class);
-    }
-
     private Claims extractAllClaims(String token) {
         return Jwts.parser()
                 .verifyWith(key())
@@ -63,7 +59,7 @@ public class JwtTokenUtils {
     public boolean validateToken(String token) {
         try {
             Jwts.parser()
-                    .verifyWith((SecretKey) key())
+                    .verifyWith(key())
                     .build()
                     .parse(token);
             return true;

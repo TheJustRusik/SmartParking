@@ -17,6 +17,7 @@ public class ExampleController {
     ResponseEntity<String> for_all() {
         return ResponseEntity.ok("This data for all");
     }
+
     @GetMapping("/for_user")
     @PreAuthorize("hasRole('USER')")
     ResponseEntity<String> for_user() {

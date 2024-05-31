@@ -51,7 +51,7 @@ public class ReviewService {
 
         parkingRepository.save(parking);
         parkingReview.setParking(parking);
-        ParkingReviewKey parkingReviewKey = new ParkingReviewKey(userRepository.findByNicknameOrEmail(name, name).get().getId(), reviewResponseDTO.getParking_id());
+        ParkingReviewKey parkingReviewKey = new ParkingReviewKey(userRepository.findByNicknameOrEmail(name, name).orElseThrow().getId(), reviewResponseDTO.getParking_id());
         parkingReview.setId(parkingReviewKey);
         parkingReviewRepository.save(parkingReview);
         return ResponseEntity.ok("Saved");

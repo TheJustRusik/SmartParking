@@ -6,7 +6,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.kenuki.smartparking.models.composites.MapPoint;
-import org.kenuki.smartparking.models.composites.ParkingReviewKey;
 
 @Entity
 @Getter
